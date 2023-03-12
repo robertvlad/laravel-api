@@ -32,7 +32,7 @@
             <p>Ultima modifica effettuata il: {{ $post['updated_at']}}</p>
             <p>Tipo: {{ $post->type ? $post->type->name : 'Senza tipologia' }}</p>
             <p>Technologies:</p>
-            @forelse ($post->technoligies as $technology)
+            @forelse ($post->technologies as $technology)
                 {{ $technology->name }}                
             @empty
                 Nessuna technology associata

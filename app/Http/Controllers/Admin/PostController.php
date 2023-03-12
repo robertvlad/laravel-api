@@ -64,7 +64,7 @@ class PostController extends Controller
         $newPost = Post::create($form_data);
 
         if($request->has('technologies')) {
-            $newPost->technoligies()->attach($request->technologies);
+            $newPost->technologies()->attach($request->technologies);
         }
 
         $new_lead = new Lead();
@@ -134,7 +134,7 @@ class PostController extends Controller
         $post->update($form_data);
 
         if($request->has('technologies')) {
-            $post->technoligies()->sync($request->technologies);
+            $post->technologies()->sync($request->technologies);
         }
 
         return redirect()->route('admin.posts.show', ['post' => $post['slug']])->with('message', 'Post modificato correttamente');
@@ -148,7 +148,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        // $post->technoligies()->sync([]);
+        // $post->technologies()->sync([]);
 
         $post->delete();
 

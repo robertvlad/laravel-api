@@ -53,7 +53,7 @@
                             <input type="checkbox" value="{{ $technology->id }}" class="form-check-input" name="technologies[]" {{ in_array($technology->id, old('technologies', [] )) ? 'checked' : '' }}>
                             <label class="form-check-label">{{ $technology->name }}</label>                                
                             @else
-                            <input type="checkbox" value="{{ $technology->id }}" class="form-check-input" name='technologies[]' {{ $post->technoligies->contains($technology) ? 'checked' : '' }}>
+                            <input type="checkbox" value="{{ $technology->id }}" class="form-check-input" name='technologies[]' {{ $post->technologies->contains($technology) ? 'checked' : '' }}>
                             <label class="form-check-label">{{ $technology->name }}</label>                                
                             @endif                            
                         </div>                            
