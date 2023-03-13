@@ -17,4 +17,24 @@ class PostController extends Controller
             'posts' => $posts
         ]);
     }
+
+    public function show($slug) {
+
+        $post = Post::with('technologies', 'type')->where('slug', $slug)->first();
+
+        if ($post) {
+
+            return response()->json([
+                'succes' => true,
+                'post'   => $post
+            ]);
+        }
+        else {
+            
+            return response()->json([
+                'succes' => false,
+                'post'   => 'Nessun post trovato'
+            ]);
+        }
+    }
 }
