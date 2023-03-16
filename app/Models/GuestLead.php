@@ -9,5 +9,5 @@ class GuestLead extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'surname', 'email', 'phone', 'message'];
+    protected $fillable = ['name', 'surname', 'phone', 'email', 'message'];
 }

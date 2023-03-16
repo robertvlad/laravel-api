@@ -17,30 +17,28 @@ class GuestLeadController extends Controller
         $form_data = $request->all();
 
         $validator = Validator::make($form_data, [
-            'name' => 'required',
-            'surname' => 'required',
-            'phone' => 'required',
-            'email' => 'required',
-            'message' => 'required'
-
+            'name'      => 'required',
+            'surname'   => 'required',
+            'phone'     => 'required',
+            'email'     => 'required',
+            'message'   => 'required'
         ]);
-
-        if($validator->fails()) {
+        
+        if($validator->fails()){
             return response()->json([
-                'succes' => false,
-                'errors' => $validator->errors()
+                'success'   => false,
+                'errors'    => $validator->errors()
             ]);
         }
 
         $newContact = new GuestLead();
         $newContact->fill($form_data);
-
         $newContact->save();
 
-        Mail::to('info@boolpress.com')->send(new GuestContact($newContact));
-
+        Mail::to('info@boolflix.com')->send(new GuestContact($newContact));
         return response()->json([
-            'success' => true,
+            'success'   => true
         ]);
+
     }
 }
