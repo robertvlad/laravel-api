@@ -24,7 +24,7 @@
                     </button>
                 </form>
             </div>
-            <img src="{{ asset('storage/' .$post->cover_image ) }}" alt="{{ $post->title }}" class="w-50">
+            <img src="{{ asset('storage/' .$post->cover_image ) }}" alt="{{ $post->title }}" class="w-25">
             <h4 class="pb-1">CONTENUTO DEL POST:</h4>
             <p class="pb-2">{{ $post['content']}}</p>
             <p>Slug: {{ $post['slug'] }}</p>

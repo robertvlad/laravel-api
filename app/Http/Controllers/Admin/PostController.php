@@ -54,6 +54,7 @@ class PostController extends Controller
         $slug = Post::generateSlug($request->title);
 
         $form_data['slug'] = $slug;
+
         
         if ($request->hasFile('cover_image')) {
             $path = Storage::disk('public')->put('post_images', $request->cover_image);
@@ -126,7 +127,7 @@ class PostController extends Controller
                 Storage::delete($post->cover_image);
             } 
 
-            $path = Storage::disk()->put('post_images', $request->cover_image);
+            $path = Storage::disk('public')->put('post_images', $request->cover_image);
 
             $form_data['cover_image'] = $path;
         }
